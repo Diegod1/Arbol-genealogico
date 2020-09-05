@@ -1,58 +1,30 @@
 /*#declaracion de los hechos
 #1ra Generacion
 */
-mujeres = [tatarabuela_david,tatarabuela_cordoba,tatarabuela_villota,tatarabuela_rosero,tatarabuela_pumalpa,tatarabuela_galves,tatarabuela_muñoz,tatarabuela_rosero2,fidelina,maria,fidelina_pumalpa,carlina,marina,ester,florelia,nelly,aracelly,flor,aimet,stella,janeth,aida,johana,paola,diana,yuli,carol].
-hombres = [tatarabuelo_david,tatarabuelo_cordoba,tatarabuelo_villota,tatarabuelo_rosero,tatarabuelo_pumalpa,tatarabuelo_galves,tatarabuelo_muñoz,tatarabuela_rosero2,adam,reinaldo,rafael,alvaro,abraham,luis_galves,didimo,luis_jr,hernan,sigifredo,mario,diego,fredy,carlos,stiven,max,andres,javier,juan_jose,danilo,german,mauricio,sebastian].
-
-%Diego es hijo de florelia
-hijo_de(diego,florelia).
-hijo_de(aida,nelly).
-hijo_de(johana,nelly).
-hijo_de(paola,aracelly).
-hijo_de(carlos,flor).
-hijo_de(fredy,flor).
-hijo_de(max,aimet).
-hijo_de(stiven,aimet).
-hijo_de(javier,didimo).
-hijo_de(andres,didimo).
+mujer([tatarabuela_david,tatarabuela_cordoba,tatarabuela_villota,tatarabuela_rosero,tatarabuela_pumalpa,tatarabuela_galves,tatarabuela_munoz,tatarabuela_rosero2,fidelina,maria,fidelina_pumalpa,carlina,marina,ester,florelia,nelly,aracelly,flor,aimet,stella,janeth,aida,johana,paola,diana,yuli,carol]).
+hombre([tatarabuelo_david,tatarabuelo_cordoba,tatarabuelo_villota,tatarabuelo_rosero,tatarabuelo_pumalpa,tatarabuelo_galves,tatarabuelo_munoz,tatarabuela_rosero2,adam,reinaldo,rafael,alvaro,abraham,luis_galves,didimo,luis_jr,hernan,sigifredo,mario,diego,fredy,carlos,stiven,max,andres,javier,juan_jose,danilo,german,mauricio,sebastian]).
+%hijos de florelia
+hijo_de([diego],florelia).
+hijo_de([aida,johana],nelly).
+hijo_de([paola],aracelly)
+hijo_de([carlos,fredy],flor).
+hijo_de([max,stiven],aimet).
+hijo_de([javier,andres],didimo).
 hijo_de(juan_jose,stella).
 hijo_de(juan_jose,luis_jr).
 hijo_de(diana,hernan).
-hijo_de(danilo,janeth).
-hijo_de(yuli,janeth).
-hijo_de(german,sigifredo).
-hijo_de(mauricio,sigifredo).
-hijo_de(carol,mario).
-hijo_de(sebastian,mario).
+hijo_de([danilo,yulli],janeth).
+hijo_de([german,mauricio],sigifredo).
+hijo_de([carol,sebastian],mario).
 
 /*#2da Generacion*/
-hijo_de(florelia,marina).
-hijo_de(nelly,marina).
-hijo_de(aracelly,marina).
-hijo_de(flor,marina).
-hijo_de(aimet,marina).
-hijo_de(didimo,marina).
-hijo_de(stella,marina).
+hijo_de([florelia,nelly,aracelly,flor,aimet,didimo,stella],marina).
+hijo_de([florelia,nelly,aracelly,flor,aimet,didimo,stella],abraham).
 
-hijo_de(florelia,abraham).
-hijo_de(nelly,abraham).
-hijo_de(aracelly,abraham).
-hijo_de(flor,abraham).
-hijo_de(aimet,abraham).
-hijo_de(didimo,abraham).
-hijo_de(stella,abraham).
 
-hijo_de(luis_jr,luis_galves).
-hijo_de(hernan,luis_galves).
-hijo_de(janeth,luis_galves).
-hijo_de(sigifredo,luis_galves).
-hijo_de(mario,luis_galves).
+hijo_de([luis_jr,hernan,janeth,sigifredo,mario],luis_galves).
+hijo_de([luis_jr,hernan,janeth,sigifredo,mario],ester).
 
-hijo_de(luis_jr,ester).
-hijo_de(hernan,ester).
-hijo_de(janeth,ester).
-hijo_de(sigifredo,ester).
-hijo_de(mario,ester).
 
 /*3ra Generacion*/
 hijo_de(marina,fidelina).
@@ -87,8 +59,8 @@ hijo_de(fidelina_pumalpa,tatarabuela_pumalpa).
 hijo_de(rafael,tatarabuelo_galves).
 hijo_de(rafael,tatarabuela_galves).
 
-hijo_de(carlina,tatarabuelo_muñoz).
-hijo_de(carlina,tatarabuela_muñoz).
+hijo_de(carlina,tatarabuelo_munoz).
+hijo_de(carlina,tatarabuela_munoz).
 
 hijo_de(alvaro,tatarabuelo_rosero2).
 hijo_de(alvaro,tatarabuela_rosero2).
@@ -99,7 +71,8 @@ hijo_de(alvaro,tatarabuela_rosero2).
 
 /*base de conocimientos (Reglas)*/
 padre_de(Padre,Hijo):-hijo_de(Hijo,Padre).
-
+mama_de(X,Y):- mujer(X),hijo_de(Y,X).
+papa_de(X,Y):- hombre(X),hijo_de(Y,X).
 
 
 %hermanos
@@ -122,14 +95,3 @@ primo_de(P1,P2):-padre_de(X,P1),tio_de(X,P2).
 %funcion para romper la recursividad
 ancestro_de(A,J):-(padre_de(A,J)).
 ancestro_de(A,J):-padre_de(A,Z),ancestro_de(Z,J).
-
-
-
-
-
-
-
-
-
-
-
