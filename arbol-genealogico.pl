@@ -1,12 +1,12 @@
 /*#declaracion de los hechos
 #1ra Generacion
 */
-mujer([tatarabuela_david,tatarabuela_cordoba,tatarabuela_villota,tatarabuela_rosero,tatarabuela_pumalpa,tatarabuela_galves,tatarabuela_munoz,tatarabuela_rosero2,fidelina,maria,fidelina_pumalpa,carlina,marina,ester,florelia,nelly,aracelly,flor,aimet,stella,janeth,aida,johana,paola,diana,yuli,carol]).
-hombre([tatarabuelo_david,tatarabuelo_cordoba,tatarabuelo_villota,tatarabuelo_rosero,tatarabuelo_pumalpa,tatarabuelo_galves,tatarabuelo_munoz,tatarabuela_rosero2,adam,reinaldo,rafael,alvaro,abraham,luis_galves,didimo,luis_jr,hernan,sigifredo,mario,diego,fredy,carlos,stiven,max,andres,javier,juan_jose,danilo,german,mauricio,sebastian]).
+tiene_genero(mujer,[tatarabuela_david,tatarabuela_cordoba,tatarabuela_villota,tatarabuela_rosero,tatarabuela_pumalpa,tatarabuela_galves,tatarabuela_munoz,tatarabuela_rosero2,fidelina,maria,fidelina_pumalpa,carlina,marina,ester,florelia,nelly,aracelly,flor,aimet,stella,janeth,aida,johana,paola,diana,yuli,carol]).
+tiene_genero(hombre,[tatarabuelo_david,tatarabuelo_cordoba,tatarabuelo_villota,tatarabuelo_rosero,tatarabuelo_pumalpa,tatarabuelo_galves,tatarabuelo_munoz,tatarabuela_rosero2,adam,reinaldo,rafael,alvaro,abraham,luis_galves,didimo,luis_jr,hernan,sigifredo,mario,diego,fredy,carlos,stiven,max,andres,javier,juan_jose,danilo,german,mauricio,sebastian]).
 %hijos de florelia
 hijo_de([diego],florelia).
 hijo_de([aida,johana],nelly).
-hijo_de([paola],aracelly)
+hijo_de(paola,aracelly).
 hijo_de([carlos,fredy],flor).
 hijo_de([max,stiven],aimet).
 hijo_de([javier,andres],didimo).
@@ -71,8 +71,8 @@ hijo_de(alvaro,tatarabuela_rosero2).
 
 /*base de conocimientos (Reglas)*/
 padre_de(Padre,Hijo):-hijo_de(Hijo,Padre).
-mama_de(X,Y):- mujer(X),hijo_de(Y,X).
-papa_de(X,Y):- hombre(X),hijo_de(Y,X).
+mama_de(X,Y):- tiene_genero(mujer,X),hijo_de(Y,X).
+papa_de(X,Y):- tiene_genero(hombre,X),hijo_de(Y,X).
 
 
 %hermanos
