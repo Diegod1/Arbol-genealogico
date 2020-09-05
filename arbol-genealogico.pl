@@ -1,6 +1,9 @@
 /*#declaracion de los hechos
 #1ra Generacion
 */
+mujeres = [tatarabuela_david,tatarabuela_cordoba,tatarabuela_villota,tatarabuela_rosero,tatarabuela_pumalpa,tatarabuela_galves,tatarabuela_muñoz,tatarabuela_rosero2,fidelina,maria,fidelina_pumalpa,carlina,marina,ester,florelia,nelly,aracelly,flor,aimet,stella,janeth,aida,johana,paola,diana,yuli,carol].
+hombres = [tatarabuelo_david,tatarabuelo_cordoba,tatarabuelo_villota,tatarabuelo_rosero,tatarabuelo_pumalpa,tatarabuelo_galves,tatarabuelo_muñoz,tatarabuela_rosero2,adam,reinaldo,rafael,alvaro,abraham,luis_galves,didimo,luis_jr,hernan,sigifredo,mario,diego,fredy,carlos,stiven,max,andres,javier,juan_jose,danilo,german,mauricio,sebastian].
+
 %Diego es hijo de florelia
 hijo_de(diego,florelia).
 hijo_de(aida,nelly).
