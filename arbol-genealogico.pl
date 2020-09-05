@@ -1,9 +1,9 @@
 /*#declaracion de los hechos
 #1ra Generacion
 */
-genero(florelia,mujer).
-genero(marina,mujer).
-genero(nelly,mujer).
+genero([tatarabuela_david,tatarabuela_cordoba,tatarabuela_villota,tatarabuela_rosero,tatarabuela_pumalpa,tatarabuela_galves,tatarabuela_munoz,tatarabuela_rosero2,fidelina,maria,fidelina_pumalpa,carlina,marina,ester,florelia,nelly,aracelly,flor,aimet,stella,janeth,aida,johana,paola,diana,yuli,carol],mujer).
+%genero([tatarabuelo_david,tatarabuelo_cordoba,tatarabuelo_villota,tatarabuelo_rosero,tatarabuelo_pumalpa,tatarabuelo_galves,tatarabuelo_munoz,tatarabuela_rosero2,adam,reinaldo,rafael,alvaro,abraham,luis_galves,didimo,luis_jr,hernan,sigifredo,mario,diego,fredy,carlos,stiven,max,andres,javier,juan_jose,danilo,german,mauricio,sebastian],hombre).
+
 
 %Diego es hijo de florelia
 hijo_de([diego],florelia).
@@ -71,7 +71,7 @@ hijo_de([alvaro],tatarabuela_rosero2).
 /*base de conocimientos (Reglas)*/
 %padre_de(Padre,Hijo):-hijo_de(Hijo,Padre).
 padre_de(Padre,Hijo):-hijo_de(Hijos,Padre),member(Hijo,Hijos).
-madre_de(Madre,Hijo):-hijo_de(Hijos,Madre),member(Hijo,Hijos),genero(Madre,mujer).
+madre_de(Madre,Hijo):-hijo_de(Hijos,Madre),member(Hijo,Hijos),genero(Mujeres,mujer),member(Madre,Mujeres).
 
 
 %hermanos
