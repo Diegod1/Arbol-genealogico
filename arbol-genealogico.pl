@@ -29,6 +29,23 @@ mujer(diana).
 mujer(yuli).
 mujer(carol).
 
+
+esposo_de(tatarabuelo_david,tatarabuela_david).
+esposo_de(tatarabuelo_cordoba,tatarabuela_cordoba).
+esposo_de(tatarabuelo_villota,tatarabuela_villota).
+esposo_de(tatarabuelo_rosero,tatarabuela_rosero).
+esposo_de(tatarabuelo_pumalpa,tatarabuela_pumalpa).
+esposo_de(tatarabuelo_galves,tatarabuela_galves).
+esposo_de(tatarabuelo_munoz,tatarabuela_munoz).
+esposo_de(tatarabuelo_rosero2,tatarabuela_rosero2).
+esposo_de(adam,fidelina).
+esposo_de(reinaldo,maria).
+esposo_de(rafael,fidelina_pumalpa).
+esposo_de(alvaro,carlina).
+esposo_de(abraham,marina).
+esposo_de(luis_galves,ester).
+esposo_de(stella,luis_jr).
+
 %Diego es hijo de florelia
 hijo_de([diego],florelia).
 hijo_de([aida,johana],nelly).
@@ -99,7 +116,7 @@ madre_de(Madre,Hijo):-hijo_de(Hijos,Madre),member(Hijo,Hijos),mujer(Madre).
 
 
 %hermanos
-hermano_de(H1,H2):-(padre_de(X,H1),padre_de(X,H2));(madre_de(X,H1),madre_de(X,H2)).
+hermano_de(H1,H2):-(padre_de(X,H1),padre_de(X,H2),not(esposo_de(X,O)));(madre_de(X,H1),madre_de(X,H2)).
 
 %tios(Hermanos de los padres) X es padre de S Y X es hermano de T
 tio_de(T,S):-padre_de(X,S),hermano_de(X,T).
