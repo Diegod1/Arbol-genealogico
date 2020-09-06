@@ -1,9 +1,35 @@
 /*#declaracion de los hechos
 #1ra Generacion
 */
-genero([tatarabuela_david,tatarabuela_cordoba,tatarabuela_villota,tatarabuela_rosero,tatarabuela_pumalpa,tatarabuela_galves,tatarabuela_munoz,tatarabuela_rosero2,fidelina,maria,fidelina_pumalpa,carlina,marina,ester,florelia,nelly,aracelly,flor,aimet,stella,janeth,aida,johana,paola,diana,yuli,carol],mujer).
+%tatarabuela_david,tatarabuela_cordoba,tatarabuela_villota,tatarabuela_rosero,tatarabuela_pumalpa,tatarabuela_galves,tatarabuela_munoz,tatarabuela_rosero2,fidelina,maria,fidelina_pumalpa,carlina,marina,ester,florelia,nelly,aracelly,flor,aimet,stella,janeth,aida,johana,paola,diana,yuli,carol],mujer).
 %genero([tatarabuelo_david,tatarabuelo_cordoba,tatarabuelo_villota,tatarabuelo_rosero,tatarabuelo_pumalpa,tatarabuelo_galves,tatarabuelo_munoz,tatarabuela_rosero2,adam,reinaldo,rafael,alvaro,abraham,luis_galves,didimo,luis_jr,hernan,sigifredo,mario,diego,fredy,carlos,stiven,max,andres,javier,juan_jose,danilo,german,mauricio,sebastian],hombre).
-
+mujer(florelia).
+mujer(tatarabuela_david).
+mujer(tatarabuela_cordoba).  
+mujer(tatarabuela_villota).  
+mujer(tatarabuela_rosero).  
+mujer(tatarabuela_pumalpa).  
+mujer(tatarabuela_galves).  
+mujer(tatarabuela_munoz).  
+mujer(tatarabuela_rosero2).  
+mujer(fidelina).  
+mujer(maria).  
+mujer(fidelina_pumalpa).  
+mujer(carlina).  
+mujer(marina).  
+mujer(ester).    
+mujer(nelly).  
+mujer(aracelly).  
+mujer(flor).  
+mujer(aimet).  
+mujer(stella).  
+mujer(janeth).  
+mujer(aida).  
+mujer(johana).  
+mujer(paola).  
+mujer(diana).  
+mujer(yuli).  
+mujer(carol).
 
 %Diego es hijo de florelia
 hijo_de([diego],florelia).
@@ -70,8 +96,8 @@ hijo_de([alvaro],tatarabuela_rosero2).
 
 /*base de conocimientos (Reglas)*/
 %padre_de(Padre,Hijo):-hijo_de(Hijo,Padre).
-padre_de(Padre,Hijo):-hijo_de(Hijos,Padre),member(Hijo,Hijos).
-madre_de(Madre,Hijo):-hijo_de(Hijos,Madre),member(Hijo,Hijos),genero(Mujeres,mujer),member(Madre,Mujeres).
+padre_de(Padre,Hijo):-hijo_de(Hijos,Padre),member(Hijo,Hijos),not(mujer(Padre)).
+madre_de(Madre,Hijo):-hijo_de(Hijos,Madre),member(Hijo,Hijos),mujer(Madre).
 
 
 %hermanos
@@ -92,6 +118,11 @@ primo_de(P1,P2):-padre_de(X,P1),tio_de(X,P2).
 %funcion para romper la recursividad
 ancestro_de(A,J):-(padre_de(A,J)).
 ancestro_de(A,J):-padre_de(A,Z),ancestro_de(Z,J).
+
+
+
+
+
 
 
 
