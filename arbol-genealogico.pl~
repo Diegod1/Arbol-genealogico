@@ -99,7 +99,7 @@ madre_de(Madre,Hijo):-hijo_de(Hijos,Madre),member(Hijo,Hijos),mujer(Madre).
 
 
 %hermanos
-hermano_de(H1,H2):-padre_de(X,H1);madre_de(X,H1),H1\==H2.
+hermano_de(H1,H2):-padre_de(X,H1),padre_de(X,H2);madre_de(X,H1);madre_de(X,H2).
 
 %tios(Hermanos de los padres) X es padre de S Y X es hermano de T
 tio_de(T,S):-padre_de(X,S),hermano_de(X,T).
