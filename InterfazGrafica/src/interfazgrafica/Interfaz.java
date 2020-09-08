@@ -7,7 +7,8 @@ package interfazgrafica;
 
 import javax.swing.JOptionPane;
 import org.jpl7.Query;
-
+import java.awt.Image;
+import javax.swing.ImageIcon;
 /**
  *
  * @author Carolina Botina
@@ -17,11 +18,16 @@ public class Interfaz extends javax.swing.JFrame {
     /**
      * Creates new form Interfaz
      */
-    public Interfaz() {
+    public Interfaz() {        
         initComponents();
         setTitle("BIENVENIDO");
         setResizable(false);
         setLocationRelativeTo(null);
+        
+        ImageIcon bienvenida;
+        bienvenida = new ImageIcon(getClass().getResource("/interfazgrafica/Imagenes/arbol3.jpg"));
+        ImageIcon icono = new ImageIcon(bienvenida.getImage().getScaledInstance(inicio.getWidth(),inicio.getHeight(),Image.SCALE_DEFAULT));
+        inicio.setIcon(icono);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,15 +38,16 @@ public class Interfaz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
+        inicio = new javax.swing.JLabel();
         boton_entrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setPreferredSize(new java.awt.Dimension(650, 580));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfazgrafica/Imagenes/arbol3.jpg"))); // NOI18N
+        inicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfazgrafica/Imagenes/arbol3.jpg"))); // NOI18N
 
+        boton_entrar.setFont(new java.awt.Font("Ink Free", 1, 18)); // NOI18N
         boton_entrar.setText("ENTRAR");
         boton_entrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,7 +59,7 @@ public class Interfaz extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(inicio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(282, 282, 282)
                 .addComponent(boton_entrar))
@@ -60,7 +67,7 @@ public class Interfaz extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jLabel2)
+                .addComponent(inicio)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(boton_entrar))
         );
@@ -121,6 +128,6 @@ public class Interfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton boton_entrar;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel inicio;
     // End of variables declaration//GEN-END:variables
 }
