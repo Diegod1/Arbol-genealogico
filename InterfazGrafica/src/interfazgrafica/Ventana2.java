@@ -18,6 +18,8 @@ public class Ventana2 extends javax.swing.JFrame {
      */
     public Ventana2() {
         initComponents();
+        
+        
     }
     
     String Item="";
@@ -38,7 +40,7 @@ public class Ventana2 extends javax.swing.JFrame {
         ancestros_de = new javax.swing.JRadioButton();
         btn_consultar = new javax.swing.JButton();
         integrantes = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
+        imagen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(600, 450));
@@ -81,7 +83,7 @@ public class Ventana2 extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("jLabel2");
+        imagen.setText("jLabel2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,7 +103,7 @@ public class Ventana2 extends javax.swing.JFrame {
                             .addComponent(tios_de)
                             .addComponent(padres_de))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(95, Short.MAX_VALUE)
@@ -123,7 +125,7 @@ public class Ventana2 extends javax.swing.JFrame {
                         .addComponent(tios_de)
                         .addGap(18, 18, 18)
                         .addComponent(primos_de))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(imagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(ancestros_de)
                 .addGap(9, 9, 9)
@@ -196,9 +198,9 @@ public class Ventana2 extends javax.swing.JFrame {
     private javax.swing.JRadioButton ancestros_de;
     private javax.swing.JButton btn_consultar;
     private javax.swing.ButtonGroup consultas;
+    private javax.swing.JLabel imagen;
     private javax.swing.JComboBox<String> integrantes;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JRadioButton padres_de;
     private javax.swing.JRadioButton primos_de;
     private javax.swing.JRadioButton tios_de;

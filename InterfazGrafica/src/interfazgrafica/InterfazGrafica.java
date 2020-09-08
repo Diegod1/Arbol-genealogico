@@ -5,6 +5,12 @@
  */
 package interfazgrafica;
 
+import javax.swing.JOptionPane;
+import org.jpl7.Query;
+import org.jpl7.Term;
+
+
+
 /**
  *
  * @author Carolina Botina
@@ -16,6 +22,11 @@ public class InterfazGrafica {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-    }
+        Query q=new Query("consult('arbol-genealogico.pl')");
+            if(q.hasSolution()){
+                JOptionPane.showMessageDialog(null,"Conexion exitosa");
+            }
+            
+        }
     
 }
