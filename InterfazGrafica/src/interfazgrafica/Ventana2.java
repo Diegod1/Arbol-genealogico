@@ -5,8 +5,11 @@
  */
 package interfazgrafica;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Map;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import org.jpl7.Query;
 import org.jpl7.Term;
@@ -45,6 +48,8 @@ public class Ventana2 extends javax.swing.JFrame {
         btn_consultar = new javax.swing.JButton();
         integrantes = new javax.swing.JComboBox<>();
         imagen = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        texto = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(600, 450));
@@ -94,6 +99,14 @@ public class Ventana2 extends javax.swing.JFrame {
 
         imagen.setText("jLabel2");
 
+        texto.setEditable(false);
+        texto.setColumns(20);
+        texto.setFont(new java.awt.Font("Monospaced", 1, 18)); // NOI18N
+        texto.setRows(5);
+        texto.setBorder(null);
+        texto.setMaximumSize(new java.awt.Dimension(500, 100));
+        jScrollPane1.setViewportView(texto);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -101,47 +114,57 @@ public class Ventana2 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ancestros_de)
-                            .addComponent(jLabel1))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(primos_de)
-                            .addComponent(tios_de)
-                            .addComponent(padres_de))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(primos_de)
+                                    .addComponent(tios_de)
+                                    .addComponent(padres_de)
+                                    .addComponent(ancestros_de))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(integrantes, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
                         .addComponent(imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(95, Short.MAX_VALUE)
-                .addComponent(integrantes, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(btn_consultar)
-                .addGap(42, 42, 42))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_consultar)
+                        .addGap(183, 183, 183))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jLabel1)
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(padres_de)
-                        .addGap(26, 26, 26)
-                        .addComponent(tios_de)
-                        .addGap(18, 18, 18)
-                        .addComponent(primos_de))
-                    .addComponent(imagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(ancestros_de)
-                .addGap(9, 9, 9)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(integrantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_consultar))
-                .addContainerGap(23, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_consultar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addComponent(imagen, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(padres_de)
+                                .addGap(18, 18, 18)
+                                .addComponent(tios_de)
+                                .addGap(18, 18, 18)
+                                .addComponent(primos_de)
+                                .addGap(18, 18, 18)
+                                .addComponent(ancestros_de)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(integrantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
         );
 
         pack();
@@ -166,6 +189,7 @@ public class Ventana2 extends javax.swing.JFrame {
         Item = integrantes.getSelectedItem().toString();
         //JOptionPane.showMessageDialog(null,"El item es:"+Item);
         String consulta="";
+        texto.setText("");
         if(padres_de.isSelected())
         {
             //System.out.println("wasaaaaa");
@@ -188,7 +212,7 @@ public class Ventana2 extends javax.swing.JFrame {
         
         if(padres_de.isSelected() || tios_de.isSelected() || primos_de.isSelected() || ancestros_de.isSelected())
         {
-            System.out.println(consulta);
+            
             consultar(consulta);
         }
         else
@@ -202,18 +226,25 @@ public class Ventana2 extends javax.swing.JFrame {
     private void consultar(String consulta)
     {
            Query con=new Query(consulta);
-           LinkedList<String> d=new LinkedList<>();
+           //LinkedList<String> d=new LinkedList<>();
+           
+           
            if(con.hasSolution())
-           {
-
+           {    
+               
                for (Map<String, Term> map : con) {
                    String datos=map.get("X").toString();
-                   map.keySet();
-                   d.add(datos);
+                   //d.add(datos);
+                   //arreglo.add(datos);
+                   texto.setText(texto.getText()+"\n"+datos);
+                  
                }
+               
+               
+               
            }
            
-           JOptionPane.showMessageDialog(null, d);
+          
            
     }
     private void tios_deActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tios_deActionPerformed
@@ -262,8 +293,10 @@ public class Ventana2 extends javax.swing.JFrame {
     private javax.swing.JLabel imagen;
     private javax.swing.JComboBox<String> integrantes;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JRadioButton padres_de;
     private javax.swing.JRadioButton primos_de;
+    private javax.swing.JTextArea texto;
     private javax.swing.JRadioButton tios_de;
     // End of variables declaration//GEN-END:variables
 }
