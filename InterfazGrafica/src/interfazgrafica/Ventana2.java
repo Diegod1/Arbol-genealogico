@@ -48,7 +48,7 @@ public class Ventana2 extends javax.swing.JFrame {
         ancestros_de = new javax.swing.JRadioButton();
         btn_consultar = new javax.swing.JButton();
         integrantes = new javax.swing.JComboBox<>();
-        imagen = new javax.swing.JLabel();
+        imagen2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         texto = new javax.swing.JTextArea();
 
@@ -56,7 +56,7 @@ public class Ventana2 extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(600, 450));
 
         jLabel1.setFont(new java.awt.Font("Ink Free", 0, 18)); // NOI18N
-        jLabel1.setText("Selecciona la opción seguido del integrante a consultar:");
+        jLabel1.setText("Selecciona la opción seguido del integrante a consultar");
 
         consultas.add(padres_de);
         padres_de.setFont(new java.awt.Font("Ink Free", 0, 18)); // NOI18N
@@ -79,10 +79,20 @@ public class Ventana2 extends javax.swing.JFrame {
         consultas.add(primos_de);
         primos_de.setFont(new java.awt.Font("Ink Free", 0, 18)); // NOI18N
         primos_de.setText("Primos de");
+        primos_de.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                primos_deActionPerformed(evt);
+            }
+        });
 
         consultas.add(ancestros_de);
         ancestros_de.setFont(new java.awt.Font("Ink Free", 0, 18)); // NOI18N
         ancestros_de.setText("Ancestros de");
+        ancestros_de.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ancestros_deActionPerformed(evt);
+            }
+        });
 
         btn_consultar.setFont(new java.awt.Font("Ink Free", 0, 18)); // NOI18N
         btn_consultar.setText("Consultar");
@@ -105,7 +115,7 @@ public class Ventana2 extends javax.swing.JFrame {
             }
         });
 
-        imagen.setText("jLabel2");
+        imagen2.setBackground(new java.awt.Color(128, 128, 128));
 
         texto.setEditable(false);
         texto.setColumns(20);
@@ -120,69 +130,63 @@ public class Ventana2 extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(126, 126, 126)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(primos_de)
+                                    .addComponent(btn_consultar)
                                     .addComponent(tios_de)
+                                    .addComponent(ancestros_de)
                                     .addComponent(padres_de)
-                                    .addComponent(ancestros_de))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(integrantes, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_consultar)
-                        .addGap(183, 183, 183))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(79, 79, 79)
-                                .addComponent(jLabel1)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(primos_de)
+                                    .addComponent(integrantes, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(imagen2, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(372, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(padres_de)
-                        .addGap(18, 18, 18)
-                        .addComponent(tios_de)
-                        .addGap(18, 18, 18)
-                        .addComponent(primos_de)
-                        .addGap(18, 18, 18)
-                        .addComponent(ancestros_de)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(integrantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(jLabel1)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btn_consultar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addComponent(imagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(ancestros_de)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tios_de)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(padres_de)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(primos_de)
+                        .addGap(11, 11, 11)
+                        .addComponent(integrantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn_consultar))
+                    .addComponent(imagen2, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(160, 160, 160))
         );
+
+        imagen2.getAccessibleContext().setAccessibleName("");
+        imagen2.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void padres_deActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_padres_deActionPerformed
          // TODO add your handling code here:
-
+        ImageIcon padres;
+        padres = new ImageIcon(getClass().getResource("/interfazgrafica/Imagenes/padres2.png"));
+        ImageIcon icono = new ImageIcon(padres.getImage().getScaledInstance(imagen2.getWidth(),imagen2.getHeight(),Image.SCALE_DEFAULT));
+        imagen2.setIcon(icono);
     }//GEN-LAST:event_padres_deActionPerformed
 
     private void integrantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_integrantesActionPerformed
@@ -214,26 +218,15 @@ public class Ventana2 extends javax.swing.JFrame {
         else if(tios_de.isSelected())
         {
             consulta="tio_de(X,"+Item+")";
-            /*ImageIcon tios;
-            tios = new ImageIcon(getClass().getResource("/interfazgrafica/Imagenes/tios.jpg"));
-            ImageIcon icono = new ImageIcon(tios.getImage().getScaledInstance(imagen.getWidth(),imagen.getHeight(),Image.SCALE_DEFAULT));
-            imagen.setIcon(icono);*/
         }
         else if(primos_de.isSelected())
         {
             consulta="primo_de(X,"+Item+")";
-            /*ImageIcon primos;
-            primos = new ImageIcon(getClass().getResource("/interfazgrafica/Imagenes/primos.jpg"));
-            ImageIcon icono = new ImageIcon(primos.getImage().getScaledInstance(imagen.getWidth(),imagen.getHeight(),Image.SCALE_DEFAULT));
-            imagen.setIcon(icono);*/
+
         }
         else if(ancestros_de.isSelected())
         {
             consulta="ancestro_de(X,"+Item+")";
-            /*ImageIcon ancestros;
-            ancestros = new ImageIcon(getClass().getResource("/interfazgrafica/Imagenes/abuelos.jpg"));
-            ImageIcon icono = new ImageIcon(ancestros.getImage().getScaledInstance(imagen.getWidth(),imagen.getHeight(),Image.SCALE_DEFAULT));
-            imagen.setIcon(icono);*/
 
         }
         
@@ -276,7 +269,27 @@ public class Ventana2 extends javax.swing.JFrame {
     }
     private void tios_deActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tios_deActionPerformed
         // TODO add your handling code here:
+            ImageIcon tios;
+            tios = new ImageIcon(getClass().getResource("/interfazgrafica/Imagenes/tios.png"));
+            ImageIcon icono = new ImageIcon(tios.getImage().getScaledInstance(imagen2.getWidth(),imagen2.getHeight(),Image.SCALE_DEFAULT));
+            imagen2.setIcon(icono);
     }//GEN-LAST:event_tios_deActionPerformed
+
+    private void primos_deActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_primos_deActionPerformed
+        // TODO add your handling code here:
+            ImageIcon tios;
+            tios = new ImageIcon(getClass().getResource("/interfazgrafica/Imagenes/primos.png"));
+            ImageIcon icono = new ImageIcon(tios.getImage().getScaledInstance(imagen2.getWidth(),imagen2.getHeight(),Image.SCALE_DEFAULT));
+            imagen2.setIcon(icono);
+    }//GEN-LAST:event_primos_deActionPerformed
+
+    private void ancestros_deActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ancestros_deActionPerformed
+        // TODO add your handling code here:
+            ImageIcon ancestros;
+            ancestros = new ImageIcon(getClass().getResource("/interfazgrafica/Imagenes/abuelos.png"));
+            ImageIcon icono = new ImageIcon(ancestros.getImage().getScaledInstance(imagen2.getWidth(),imagen2.getHeight(),Image.SCALE_DEFAULT));
+            imagen2.setIcon(icono);
+    }//GEN-LAST:event_ancestros_deActionPerformed
         
     /**
      * @param args the command line arguments
@@ -317,7 +330,7 @@ public class Ventana2 extends javax.swing.JFrame {
     private javax.swing.JRadioButton ancestros_de;
     private javax.swing.JButton btn_consultar;
     private javax.swing.ButtonGroup consultas;
-    private javax.swing.JLabel imagen;
+    private javax.swing.JLabel imagen2;
     private javax.swing.JComboBox<String> integrantes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
