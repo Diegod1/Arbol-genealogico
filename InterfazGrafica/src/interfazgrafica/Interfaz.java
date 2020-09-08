@@ -20,7 +20,7 @@ public class Interfaz extends javax.swing.JFrame {
      */
     public Interfaz() {        
         initComponents();
-        setTitle("BIENVENIDO");
+        setTitle("Bienvenido");
         setResizable(false);
         setLocationRelativeTo(null);
         

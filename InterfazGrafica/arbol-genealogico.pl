@@ -1,29 +1,4 @@
-mujer(florelia).
-mujer(tatarabuela_david).
-mujer(tatarabuela_cordoba).
-mujer(tatarabuela_villota).
-mujer(tatarabuela_rosero).
-mujer(tatarabuela_pumalpa).
-mujer(tatarabuela_galves).
-mujer(tatarabuela_munoz).
-mujer(tatarabuela_rosero2).
-mujer(fidelina).
-mujer(maria).
-mujer(fidelina_pumalpa).
-mujer(carlina).
-mujer(marina).
-mujer(ester).
-mujer(nelly).
-mujer(aracelly).
-mujer(flor).
-mujer(stella).
-mujer(janeth).
-mujer(aida).
-mujer(johana).
-mujer(paola).
-mujer(diana).
-mujer(yuli).
-mujer(carol).
+genero([florelia,tatarabuela_david,tatarabuela_cordoba,tatarabuela_villota,tatarabuela_rosero,tatarabuela_pumalpa,tatarabuela_galves,tatarabuela_munoz,tatarabuela_rosero2,fidelina,maria,fidelina_pumalpa,carlina,marina,ester,nelly,aracelly,flor,stella,janeth,aida,johana,paola,diana,yuli,carol],mujer).
 
 %Diego es hijo de florelia
 hijo_de([diego],florelia).
@@ -90,9 +65,10 @@ hijo_de([alvaro],tatarabuela_rosero2).
 /**/
 
 /*base de conocimientos (Reglas)*/
+
 %padre_de(Padre,Hijo):-hijo_de(Hijo,Padre).
-padre_de(Padre,Hijo):-hijo_de(Hijos,Padre),member(Hijo,Hijos),not(mujer(Padre)).
-madre_de(Madre,Hijo):-hijo_de(Hijos,Madre),member(Hijo,Hijos),mujer(Madre).
+padre_de(Padre,Hijo):-hijo_de(Hijos,Padre),member(Hijo,Hijos),genero(Mujer,mujer),not(member(Padre,Mujer)).
+madre_de(Madre,Hijo):-hijo_de(Hijos,Madre),member(Hijo,Hijos),genero(Mujer,mujer),member(Madre,Mujer).
 padres_de(Padre,Hijo):-hijo_de(Hijos,Padre),member(Hijo,Hijos).
 
 %hermanos
