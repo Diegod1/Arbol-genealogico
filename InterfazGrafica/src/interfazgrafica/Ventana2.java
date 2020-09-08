@@ -24,7 +24,7 @@ public class Ventana2 extends javax.swing.JFrame {
     public Ventana2() {        
         this.setContentPane(fondo);
         initComponents();
-        setTitle("ÁRBOL GENEALÓGICO");
+        setTitle("Ábol genealogico");
         setResizable(false);
         setLocationRelativeTo(null);
         
@@ -175,7 +175,6 @@ public class Ventana2 extends javax.swing.JFrame {
                 .addGap(160, 160, 160))
         );
 
-        imagen2.getAccessibleContext().setAccessibleName("");
         imagen2.getAccessibleContext().setAccessibleDescription("");
 
         pack();
