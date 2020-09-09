@@ -5,7 +5,11 @@
  */
 package interfazgrafica;
 
+import java.util.LinkedList;
+import java.util.Map;
 import javax.swing.JOptionPane;
+import org.jpl7.Query;
+import org.jpl7.Term;
 
 /**
  *
@@ -57,6 +61,11 @@ public class Ventana2 extends javax.swing.JFrame {
 
         consultas.add(tios_de);
         tios_de.setText("Tios de");
+        tios_de.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tios_deActionPerformed(evt);
+            }
+        });
 
         consultas.add(primos_de);
         primos_de.setText("Primos de");
@@ -155,10 +164,64 @@ public class Ventana2 extends javax.swing.JFrame {
 
     private void btn_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultarActionPerformed
         Item = integrantes.getSelectedItem().toString();
-        JOptionPane.showMessageDialog(null,"El item es:"+Item);
+        //JOptionPane.showMessageDialog(null,"El item es:"+Item);
+        String consulta="";
+        if(padres_de.isSelected())
+        {
+            //System.out.println("wasaaaaa");
+            consulta="padres_de(X,"+Item+")";
+            
+        }
+        else if(tios_de.isSelected())
+        {
+            consulta="tio_de(X,"+Item+")";
+            
+        }
+        else if(primos_de.isSelected())
+        {
+            consulta="primo_de(X,"+Item+")";
+        }
+        else if(ancestros_de.isSelected())
+        {
+            consulta="ancestro_de(X,"+Item+")";
+        }
+        
+        if(padres_de.isSelected() || tios_de.isSelected() || primos_de.isSelected() || ancestros_de.isSelected())
+        {
+            System.out.println(consulta);
+            consultar(consulta);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null,"Elija consulta");
+        }
+        
+            
         
     }//GEN-LAST:event_btn_consultarActionPerformed
+    private void consultar(String consulta)
+    {
+           Query con=new Query(consulta);
+           LinkedList<String> d=new LinkedList<>();
+           if(con.hasSolution())
+           {
 
+               for (Map<String, Term> map : con) {
+                   String datos=map.get("X").toString();
+                   map.keySet();
+                   d.add(datos);
+               }
+           }
+           
+           JOptionPane mensaje=new JOptionPane(d);
+           mensaje.setBounds(100, 100, 100,100);
+           mensaje.show();
+           
+    }
+    private void tios_deActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tios_deActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tios_deActionPerformed
+        
     /**
      * @param args the command line arguments
      */

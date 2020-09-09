@@ -113,6 +113,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Tios de"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tios_deActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="primos_de">
       <Properties>

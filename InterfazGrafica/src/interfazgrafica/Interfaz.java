@@ -5,6 +5,9 @@
  */
 package interfazgrafica;
 
+import javax.swing.JOptionPane;
+import org.jpl7.Query;
+
 /**
  *
  * @author Carolina Botina
@@ -20,7 +23,6 @@ public class Interfaz extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -82,6 +84,14 @@ public class Interfaz extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
+        
+        Query q=new Query("consult('arbol-genealogico.pl')");
+            if(q.hasSolution()){
+                JOptionPane.showMessageDialog(null,"Conexion exitosa");
+            }
+            
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -111,6 +121,7 @@ public class Interfaz extends javax.swing.JFrame {
                 new Interfaz().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
